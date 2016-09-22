@@ -13,9 +13,7 @@ http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
 -  把so库复制到jniLibs中
 -  在src/main中创建新的loner/jni/ImageUtil.java（一定是要这样的，因为我jni中对应的函数是这样的路径和名字）
    或者你直接把我这整个package复制到你的项目下面
--  这样就可以使用了，使用方法如下：
-   ImageUtil.fastBlur(tmpBitmap, 25)
-   返回类型是bitmap，传入的也是bitmap。
+-  这样就可以使用了，使用方法如下： ImageUtil.fastBlur(tmpBitmap, 25)     返回类型是bitmap，第一个参数是bitmap类型，第二个参数是模糊度。
 
 # 补充
 
