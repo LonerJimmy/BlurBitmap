@@ -10,7 +10,7 @@ http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
 
 因为还没有放到jcenter上，使用的话会稍微麻烦点。
 
--  把io库复制到jniLibs中
+-  把so库复制到jniLibs中
 -  在src/main中创建新的loner/jni/ImageUtil.java（一定是要这样的，因为我jni中对应的函数是这样的路径和名字）
    或者你直接把我这整个package复制到你的项目下面
 -  这样就可以使用了，使用方法如下：
