@@ -1,6 +1,6 @@
 # 简介
 
-在android设备上，实现模糊效果有点棘手，不仅要考虑效果，还要再性能和实现复杂度上做抉择，这个项目是仿照下面网址的demo做的一个基于jni的高斯模糊效果。
+在android设备上，实现模糊效果有点棘手，不仅要考虑效果，还要在性能和实现复杂度上做抉择，这个项目是仿照下面网址的demo做的一个基于jni的高斯模糊效果。
 
 http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
 
@@ -8,22 +8,31 @@ http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
 
 # 使用介绍
 
-因为还没有放到jcenter上，使用的话会稍微麻烦点。
+还没有传到jcenter上。
 
--  把so库复制到jniLibs中
--  在src/main中创建新的loner/jni/ImageUtil.java（一定是要这样的，因为我jni中对应的函数是这样的路径和名字）
-   或者你直接把我这整个package复制到你的项目下面
+-  项目build.gradle添加依赖项如下：
+``` java
+allprojects {
+    repositories {
+        maven {
+            url  "http://dl.bintray.com/loner/maven"
+        }
+    }
+}
+```
+
+-  app build.gradle添加依赖项如下：
+``` java
+compile 'loner.library:blur:1.0.0'
+```
+
 -  这样就可以使用了，使用方法如下： ImageUtil.fastBlur(tmpBitmap, 25)     返回类型是bitmap，第一个参数是bitmap类型，第二个参数是模糊度。
 
 # 补充
 
-因为还没有对它进行封装，现在只是实现，不过之后会慢慢完善这个，让它使用起来更加方便。
+- 调用c++的ImageUtil.java代码还没有完善，当图片过大的时候（bitmap大于android给app的内存），就会内存泄漏，这个问题会慢慢修正。
 
-如果大家对NDK中的c++代码感兴趣，大家可以看一下这个项目
-
-https://github.com/LonerJimmy/DynamicHeadBg
-
-我把c++的代码还有mk文件放在jni文件目录下面。
+- 如果大家对NDK中的c++代码感兴趣，大家可以看一下这个项目 https://github.com/LonerJimmy/DynamicHeadBg ，我把c++的代码还有mk文件放在jni文件目录下面。
 
 
 
