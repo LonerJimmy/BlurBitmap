@@ -2,8 +2,8 @@ package example.loner.blurbitmapexample;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ImageView imageView;
     private TextView ivBlur;
-    Bitmap tmpBitmap;
+    private Bitmap localBitmap;
+    private boolean isBlur = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         imageView = (ImageView) findViewById(R.id.iv_icon);
         ivBlur = (TextView) findViewById(R.id.iv_blur);
-        Bitmap localBitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-        tmpBitmap = Bitmap.createScaledBitmap(localBitmap,
-                (int) (localBitmap.getWidth()), (int) (localBitmap.getHeight()), true);
+        localBitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
 
         Button button = (Button) findViewById(R.id.btn_blur);
         button.setOnClickListener(this);
@@ -34,7 +33,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        BitmapDrawable bg = new BitmapDrawable(getResources(), ImageUtil.fastBlur(tmpBitmap, 25));
-        ivBlur.setBackground(bg);
+        if (!isBlur) {
+            BitmapDrawable bg = new BitmapDrawable(getResources(), ImageUtil.fastBlur(localBitmap, 25));
+            ivBlur.setBackground(bg);
+            isBlur = !isBlur;
+        } else {
+            ivBlur.setBackgroundResource(R.drawable.img);
+            isBlur = !isBlur;
+        }
     }
 }
