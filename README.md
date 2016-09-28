@@ -26,7 +26,10 @@ allprojects {
 compile 'loner.library:blur:1.0.0'
 ```
 
--  这样就可以使用了，使用方法如下： ImageUtil.fastBlur(tmpBitmap, 25)     返回类型是bitmap，第一个参数是bitmap类型，第二个参数是模糊度。
+-  这样就可以使用了，使用方法如下： 
+``` java
+ImageUtil.fastBlur(tmpBitmap, 25)//返回类型是bitmap，第一个参数是bitmap类型，第二个参数是模糊度。
+```
 
 # 补充
 
