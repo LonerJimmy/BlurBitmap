@@ -29,6 +29,8 @@ compile 'loner.library:blur:1.0.0'
 ImageUtil.fastBlur(tmpBitmap, 25)//返回类型是bitmap，第一个参数是bitmap类型，第二个参数是模糊度。
 ```
 
+-  具体使用大家可以看一下项目中的demo。
+
 # 补充
 
 - 调用c++的ImageUtil.java代码还没有完善，当图片过大的时候（bitmap大于android给app的内存），就会内存泄漏，这个问题会慢慢修正。
