@@ -29,7 +29,7 @@ compile 'loner.library:blur:1.0.0'
 ImageUtil.fastBlur(tmpBitmap, 25)//返回类型是bitmap，第一个参数是bitmap类型，第二个参数是模糊度。
 ```
 
--  具体使用大家可以看一下项目中的demo。
+具体使用大家可以看一下项目中的demo。
 
 # 补充
 
