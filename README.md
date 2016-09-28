@@ -8,9 +8,7 @@ http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
 
 # 使用介绍
 
-还没有传到jcenter上。
-
--  项目build.gradle添加依赖项如下：
+-  项目build.gradle添加依赖项如下（还没传到jcenter上）：
 ``` java
 allprojects {
     repositories {
