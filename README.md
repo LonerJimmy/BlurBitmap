@@ -1,14 +1,14 @@
-# 简介
+# Introduction
 
-在android设备上，实现模糊效果有点棘手，不仅要考虑效果，还要在性能和实现复杂度上做抉择，本项目是仿照下面网址的算法思想做的一个基于jni的模糊。
+StackBlur is a fast, almost Gaussian blur created by Mario Klingemann.
 
-http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
+- More infomations:http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
 
-当然大家也可以用Renderscipt来实现高斯模糊，根据资料来看，两种方法效率差不多（NDK开发稍微领先）。因为没有对renderscript进行了解，所以就不多做结论，大家可以按照这个demo来使用一下，跟renderscript做个比较。
+This project implements StackBlur in NDK which maybe better than RenderScript.
 
-# 使用介绍
+# Getting Started
 
--  项目build.gradle添加依赖项如下（还没传到jcenter上）：
+-  Add dependency in project build.gradle as follow :
 ``` java
 allprojects {
     repositories {
@@ -19,23 +19,23 @@ allprojects {
 }
 ```
 
--  app build.gradle添加依赖项如下：
+-  Add dependency in app build.gradle as follow：
 ``` java
 compile 'loner.library:blur:1.0.0'
 ```
 
--  这样就可以使用了，使用方法如下： 
+-  Call in code： 
 ``` java
-ImageUtil.fastBlur(tmpBitmap, 25)//返回类型是bitmap，第一个参数是bitmap类型，第二个参数是模糊度。
+ImageUtil.fastBlur(tmpBitmap, 25)//return bitmap，the first params is bitmap，the second params is ambiguity。
 ```
 
-具体使用大家可以看一下项目中的demo。
+The code in the project is more detailed.
 
-# 补充
+# More
 
-- 调用c++的ImageUtil.java代码还没有完善，当图片过大的时候（bitmap大于android给app的内存），就会内存泄漏，这个问题会慢慢修正。
+- Memory will leak if the bitmap is too large.This is because ImageUtil.fastBlur() have not deal with large bitmap.
 
-- 如果大家对NDK中的c++代码感兴趣，大家可以看一下这个项目 https://github.com/LonerJimmy/DynamicHeadBg ，我把c++的代码还有mk文件放在jni文件目录下面。
+- The Source code in NDK is in https://github.com/LonerJimmy/DynamicHeadBg .
 
 
 
