@@ -1,6 +1,6 @@
 # 简介
 
-在android设备上，实现模糊效果有点棘手，不仅要考虑效果，还要在性能和实现复杂度上做抉择，这个项目是仿照下面网址的demo做的一个基于jni的高斯模糊效果。
+在android设备上，实现模糊效果有点棘手，不仅要考虑效果，还要在性能和实现复杂度上做抉择，本项目是仿照下面网址的算法思想做的一个基于jni的模糊。
 
 http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
 
