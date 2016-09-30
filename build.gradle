@@ -15,9 +15,7 @@ buildscript {
 
 allprojects {
     repositories {
-        maven {
-            url  "http://dl.bintray.com/loner/maven"
-        }
+        jcenter()
     }
 }
 
