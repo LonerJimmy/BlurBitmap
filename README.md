@@ -8,17 +8,6 @@ This project implements StackBlur in NDK which maybe better than RenderScript.
 
 # Getting Started
 
--  Add dependency in project build.gradle as follow :
-``` java
-allprojects {
-    repositories {
-        maven {
-            url  "http://dl.bintray.com/loner/maven"
-        }
-    }
-}
-```
-
 -  Add dependency in app build.gradle as follow：
 ``` java
 compile 'loner.library:blur:1.0.0'
